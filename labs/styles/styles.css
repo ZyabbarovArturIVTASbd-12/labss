@@ -1,0 +1,284 @@
+.panelnav a {
+    float: left;
+    color: #050505;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Oleo Script', sans-serif;
+  }
+  .panelnav {
+    border: 4px solid black;
+    height: 60px;
+    background: url("https://i.gifer.com/72gi.gif");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+
+  }
+ 
+  .avtorisator {
+    float: right;
+  }
+  body{
+    margin: 0%;
+    background-color: #0000002a;
+    overflow-x: hidden;
+    background: url("https://i.gifer.com/CxKT.gif"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+    
+  }
+  .img{
+    margin-top: 5%;
+  }
+  a:hover {
+    color: rgb(47, 146, 80);
+  }
+  .info {
+    width: 50%;
+    padding: 7%;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .info1 {
+    width: 80%;
+    font-size: 200%;
+    
+  }
+  .info2 {
+    
+    font-size: 150%;
+    
+  }
+  .content {
+    width: 60%;
+    padding-left: 20%;
+    padding-right: 20%;
+    height: 600px;
+    margin-top: 4%;
+    display: inline-flex;
+  }
+  img{
+    width: 50px;
+  }
+  .me img {
+    width: 600px;
+    
+  }
+  .icons{
+    display: flex;
+    float:left;
+    align-items: center;
+
+  }
+  .icon {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    
+    transition: 200ms;
+
+
+    align-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  #MainImage{
+    position: absolute;
+    left: 35vw;
+    top: 20vw;
+    width: 50vw;
+    height: 25vw;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+  }
+ 
+  .gallery{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8vh;
+    margin-left: 4%;
+
+  }
+  .buttonGallery1{
+    position:fixed;
+        left: 20vw;
+        top: 29vw;
+  }
+  .buttonGallery2{
+    position:fixed;
+        left: 89vw;
+        top: 29vw;
+  }
+  .elementImage {
+    width: 100vw;
+    height: 40vw;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+
+}
+form{
+  width: 500px;
+}
+.op{
+  max-width: 3000px;
+  margin:0px auto;
+}
+@media(max-width:3000px){
+  .op{
+    max-width: 1600px;
+  }
+}
+@media(max-width:1660px){
+  .op{
+    max-width: 1200px;
+  }
+}
+@media(max-width:1220px){
+  .op{
+    max-width: 970px;
+  }
+}
+@media(max-width:992px){
+  .op{
+    max-width: 750px;
+  }
+}
+@media(max-width:767px){
+  .op{
+    max-width: none;
+  }
+}
+
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding:5px 0; background: rgb(197, 197, 197); color: #fff; text-align: center; width: 100%;
+}
+html{
+  position: relative;
+  min-height: 100%;
+}
+body {
+  padding:0 10% 80px 10%;
+}
+
+.floating-button {
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+.userImage img{
+  margin-left: 150px;
+  margin-top: 170px;
+  width: 500px;
+  height: 600px;
+}
+.userinfo {
+  margin-left: 850px;
+  margin-top: -550px;
+  font-size: 250%;
+  letter-spacing: 1px;
+}
+.cont{
+  position: fixed;
+  
+  height: 500px;
+  width: 500px;
+ 
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  margin: 0;
+}
+.adminpanel{
+  width: 500px;
+  position: fixed;
+  left: 30%;
+  top: 300px;
+  
+  
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 100%;
+  color: rgb(182, 21, 21);
+  background-color: #e94d4d;
+  border:5px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  
+}
+.admininput{
+  max-height: 500px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  position: relative;
+  text-align: center;
+  color: rgb(68, 68, 68);
+  background-color: #adadadd2;
+  border: 10px solid black;
+  border-radius: 10px;
+}
+.addbutton{
+  
+  font-size: 100%;
+  font-family:'Segoe UI';
+  text-align: center;
+  background-color: rgb(124, 241, 150);
+}
+table{
+  width: 80px;
+  background-color: white;
+}
+td{
+  border: 10px solid black;
+  text-align: center;
+  background-color: white;
+}
+.tabletext{
+  color:white;
+}
+
+
+
