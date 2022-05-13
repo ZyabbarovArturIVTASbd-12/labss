@@ -20,6 +20,9 @@
 <a href="kontakt.php" class="floating-button">Контакты</a></td>
 <a href="mlimd1.php" class="floating-button">МЛД</a></td>
 <a href="mlimd2.php" class="floating-button">МЛД2</a></td>
+<a href="mlimd3.php" class="floating-button">МЛД3</a></td>
+<a href="mlimld4.1.php" class="floating-button">МЛД4</a></td>
+<a href="ml5.php" class="floating-button">МЛД5</a></td>
 <div class="avtorisator">
             <?php
                 if($_COOKIE['user']==''):
