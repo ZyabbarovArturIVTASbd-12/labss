@@ -53,6 +53,6 @@
     $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$image')");
     $mysql->close();
 
-    print_r($_FILES);
+    header('Location: /registr.php');
 
 ?>
