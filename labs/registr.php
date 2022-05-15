@@ -18,13 +18,16 @@
             <h1>Форма регистрации</h1>
             <form action="check.php" method="post" enctype="multipart/form-data">
             <input type="text" class="form-control" name="login"
-            id="login" placeholder="Введите логин"><br>
+            id="login" placeholder="Введите логин"> <?php if($_COOKIE['error1'] != ""){ print($_COOKIE['error1']);setcookie("error1", "Недопустимая длина логина", time() - 3600 * 24 * 30, "/");} ?> <br>
             <input type="text" class="form-control" name="name"
-            id="name" placeholder="Введите имя"><br>
+            id="name" placeholder="Введите имя"> <?php if($_COOKIE['error2'] != ""){ print($_COOKIE['error2']);setcookie("error2", "Недопустимая длина имени", time() - 3600 * 24 * 30, "/");} ?> <br>
             <input type="password" class="form-control" name="pass"
-            id="pass" placeholder="Введите пароль"><br>
-            <input type="file" name="img_upload"
+            id="pass" placeholder="Введите пароль"> <?php if($_COOKIE['error3'] != ""){ print($_COOKIE['error3']);setcookie("error3", "Недопустимая длина пароля (от 2 до 6 символов)", time() - 3600 * 24 * 30, "/");} ?> <br>
+            <input type="password" class="form-control" name="pass2"
+            id="pass2" placeholder="Введите повторный пароль"> <?php if($_COOKIE['error'] != ""){ print($_COOKIE['error']);setcookie("error", "Пароли не совпадают", time() - 3600 * 24 * 30, "/");} ?> <br>
+            <input type="file" name="img_upload" 
             id="img_upload">
+            <?php if($_COOKIE['error5'] != ""){ print($_COOKIE['error5']);setcookie("error5", "Загрузите аватарку", time() - 3600 * 24 * 30, "/");} ?> <br>
             <button class="btn btn-success" type="submit">Зарегистрировать</button>
             </form>
             </div>
@@ -35,7 +38,7 @@
             id="login" placeholder="Введите логин"><br>
             
             <input type="password" class="form-control" name="pass"
-            id="pass" placeholder="Введите пароль"><br>
+            id="pass" placeholder="Введите пароль"> <?php if($_COOKIE['error4'] != ""){ print($_COOKIE['error4']);setcookie("error4", "Такой пользователь не найден", time() - 3600 * 24 * 30, "/");} ?> <br>
             <button class="btn btn-success" type="submit">Авторизоваться</button>
             </form>
         </div>

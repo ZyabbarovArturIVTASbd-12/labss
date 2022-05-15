@@ -48,11 +48,11 @@
     <div class="adminpanel">
     <form action="adminadd.php" method="post" enctype="multipart/form-data" class="admininput">
         Пользователь<br>
-        <input type="text"  placeholder="Логин" class="textarea" name="login" id="login"/><br>
-        <input type="text"  placeholder="Имя" class="textarea" name="name" id="name"/><br>
-        <input type="password"  placeholder="Пароль" class="textarea" name="pass" id="pass"/><br>
-            Аватарка
-        <input type="file" class="file" name="img_upload" id="img_upload"/>
+        <input type="text"  placeholder="Логин" class="textarea" name="login" id="login"/> <?php if($_COOKIE['error6'] != ""){ print($_COOKIE['error6']);setcookie("error6", "Недопустимая длина логина", time() - 3600 * 24 * 30, "/");} ?> <br>
+        <input type="text"  placeholder="Имя" class="textarea" name="name" id="name"/><?php if($_COOKIE['error7'] != ""){ print($_COOKIE['error7']);setcookie("error7", "Недопустимая длина имени", time() - 3600 * 24 * 30, "/");} ?><br>
+        <input type="password"  placeholder="Пароль" class="textarea" name="pass" id="pass"/> <?php if($_COOKIE['error8'] != ""){ print($_COOKIE['error8']);setcookie("error8", "Недопустимая длина пароля (от 2 до 6 символов)", time() - 3600 * 24 * 30, "/");} ?> <br>
+        <input type="password"  placeholder="Повторный пароль" class="textarea" name="pass2" id="pass2"/> <?php if($_COOKIE['error9'] != ""){ print($_COOKIE['error9']);setcookie("error9", "Пароли не совпадают", time() - 3600 * 24 * 30, "/");} ?> <br>
+        <input type="file" class="file" name="img_upload" id="img_upload"/> <?php if($_COOKIE['error10'] != ""){ print($_COOKIE['error10']);setcookie("error10", "Загрузите аватарку", time() - 3600 * 24 * 30, "/");} ?> <br>
             
         <button class="addbutton" type="submit" id="add" name="add">Добавить пользователя</button>
     </form>

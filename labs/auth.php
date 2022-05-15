@@ -11,7 +11,8 @@
     $result = $mysql -> query("SELECT * FROM `users` WHERE `login`='$login' AND `pass`='$pass'");
     $user = $result -> fetch_assoc();
     if(count($user) == 0) {
-        echo "Такой пользователь не найден";
+        setcookie("error4", "Такой пользователь не найден", time() + 3600 * 24 * 30, "/");
+        header('Location: /registr.php');
         exit();
     }
 

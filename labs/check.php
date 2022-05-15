@@ -1,39 +1,58 @@
 <?php
+    include_once $_SERVER['DOCUMENT_ROOT']."/db.class.php";
     $login = filter_var(trim($_POST['login']),
     FILTER_SANITIZE_STRING);
     $name = filter_var(trim($_POST['name']),
     FILTER_SANITIZE_STRING);
     $pass = filter_var(trim($_POST['pass']),
     FILTER_SANITIZE_STRING);
-    
+    $pass2 = filter_var(trim($_POST['pass2']),
+    FILTER_SANITIZE_STRING);
     if(mb_strlen($login) <5 || mb_strlen($login) > 90 ) {
-        echo "Недопустимая длина логина";
+        setcookie("error1", "Недопустимая длина логина", time() + 3600 * 24 * 30, "/");
+        header('Location: /registr.php');
         exit();
     }   else if(mb_strlen($name) <3 || mb_strlen($name) > 50 ) {
-        echo "Недопустимая длина имени";
+        setcookie("error2", "Недопустимая длина имени", time() + 3600 * 24 * 30, "/");
+        header('Location: /registr.php');
         exit();
     }   else if(mb_strlen($pass) <2 || mb_strlen($pass) > 6 ) {
-        echo "Недопустимая длина пароля (от 2 до 6 символов)";
+        setcookie("error3", "Недопустимая длина пароля (от 2 до 6 символов)", time() + 3600 * 24 * 30, "/");
+        header('Location: /registr.php');
+        exit();
+    }
+    else if($pass != $pass2){
+        setcookie("error", "Пароли не совпадают", time() + 3600 * 24 * 30, "/");
+        header('Location: /registr.php');
         exit();
     }
     else if(empty($_FILES['img_upload']['tmp_name'])){
-        echo "Загрузите Аватарку";
+        
+        setcookie("error5", "Загрузите аватарку", time() + 3600 * 24 * 30, "/");
+        header('Location: /registr.php');
         exit();
       }
       $image=addslashes(file_get_contents($_FILES['img_upload']['tmp_name']));
     $pass=md5($pass."ghjbnm");
     $mysql= new mysqli('127.0.0.1','root','','register-bd');
-    if ($sql=$mysql->query("SELECT * FROM `users` WHERE `login`='$login'") and $sql->num_rows>0)
-    { 
-    echo "Пользователь с таким логином уже существет"; 
-    $mysql->close();
-    exit();
-    } 
+    DB::getInstance();
+    $login = htmlspecialchars($_POST['login']);
+
+
+        $query = "SELECT * FROM `users` WHERE `login` = '$login'";
+        $res = DB::query($query);
+
+        if (($item = DB::fetch_array($res)) == true) {
+            if ($chooseUserLogin != $item['login']) {
+                echo "This login already exists";
+                exit();
+            }
+        } 
 
     $mysql = new mysqli('127.0.0.1','root','','register-bd');
     $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$image')");
     $mysql->close();
 
-    header('Location: /registr.php');
+    print_r($_FILES);
 
 ?>

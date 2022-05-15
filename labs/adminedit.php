@@ -2,21 +2,29 @@
  $login=filter_var(trim($_POST['login']),FILTER_SANITIZE_STRING);
  $name=filter_var(trim($_POST['name']),FILTER_SANITIZE_STRING);
  $pass=filter_var(trim($_POST['pass']),FILTER_SANITIZE_STRING);
+ $pass2=filter_var(trim($_POST['pass2']),FILTER_SANITIZE_STRING);
  $log=$_GET['id'];
- if(mb_strlen($login)<5 || mb_strlen($login)>90){
-     echo "Недопустимая длина логина";
-     exit();
- }
- else if(mb_strlen($name)<3 || mb_strlen($name)>50){
-    echo "Недопустимая длина имени";
-    exit();
- }
- else if(mb_strlen($pass)<2 || mb_strlen($pass)>6){
-    echo "Недопустимая длина пароля(от 2 до 6 символов)";
-    exit();
- }
- else if(empty($_FILES['img_upload']['tmp_name'])){
-   echo "Загрузите Аватарку";
+ if(mb_strlen($login) <5 || mb_strlen($login) > 90 ) {
+   setcookie("error11", "Недопустимая длина логина", time() + 3600 * 24 * 30, "/");
+   header('Location: /update.php');
+   exit();
+}   else if(mb_strlen($name) <3 || mb_strlen($name) > 50 ) {
+   setcookie("error12", "Недопустимая длина имени", time() + 3600 * 24 * 30, "/");
+   header('Location: /update.php');
+   exit();
+}   else if(mb_strlen($pass) <2 || mb_strlen($pass) > 6 ) {
+   setcookie("error13", "Недопустимая длина пароля (от 2 до 6 символов)", time() + 3600 * 24 * 30, "/");
+   header('Location: /update.php');
+   exit();
+}
+else if($pass != $pass2){
+   setcookie("error14", "Пароли не совпадают", time() + 3600 * 24 * 30, "/");
+   header('Location: /update.php');
+   exit();
+}
+else if(empty($_FILES['img_upload']['tmp_name'])){
+   setcookie("error15", "Загрузите аватарку", time() + 3600 * 24 * 30, "/");
+   header('Location: /update.php');
    exit();
  }
  $image=addslashes(file_get_contents($_FILES['img_upload']['tmp_name']));

@@ -22,6 +22,9 @@
 <a href="kontakt.php" class="floating-button">Контакты</a></td>
 <a href="mlimd1.php" class="floating-button">МЛД</a></td>
 <a href="mlimd2.php" class="floating-button">МЛД2</a></td>
+<a href="mlimd3.php" class="floating-button">МЛД3</a></td>
+<a href="mlimld4.1.php" class="floating-button">МЛД4</a></td>
+<a href="ml5.php" class="floating-button">МЛД5</a></td>
         <div class="avtorisator">
             <?php
                 if($_COOKIE['user']==''):
@@ -53,11 +56,12 @@
     <div class="adminpanel">
     <form action="adminedit.php?id=<?=$_GET['id'];?>" method="post" enctype="multipart/form-data" class="admininput">
         Пользователь<br>
-        <input type="text"  placeholder="Новый логин" class="textarea" name="login" id="login"/>
-        <input type="text"  placeholder="Новое имя" class="textarea" name="name" id="name"/>
-        <input type="password"  placeholder="Новый пароль" class="textarea" name="pass" id="pass"/>
+        <input type="text"  placeholder="Новый логин" class="textarea" name="login" id="login"/> <?php if($_COOKIE['error11'] != ""){ print($_COOKIE['error11']);setcookie("error11", "Недопустимая длина логина", time() - 3600 * 24 * 30, "/");} ?> <br>
+        <input type="text"  placeholder="Новое имя" class="textarea" name="name" id="name"/> <?php if($_COOKIE['error12'] != ""){ print($_COOKIE['error12']);setcookie("error12", "Недопустимая длина имени", time() - 3600 * 24 * 30, "/");} ?><br>
+        <input type="password"  placeholder="Новый пароль" class="textarea" name="pass" id="pass"/> <?php if($_COOKIE['error13'] != ""){ print($_COOKIE['error13']);setcookie("error13", "Недопустимая длина пароля (от 2 до 6 символов)", time() - 3600 * 24 * 30, "/");} ?> <br>
+        <input type="password"  placeholder="Повторите новый пароль" class="textarea" name="pass2" id="pass2"/> <?php if($_COOKIE['error14'] != ""){ print($_COOKIE['error14']);setcookie("error14", "Пароли не совпадают", time() - 3600 * 24 * 30, "/");} ?> <br>
             Новая аватарка<br>
-        <input type="file" class="file" name="img_upload" id="img_upload"/>
+        <input type="file" class="file" name="img_upload" id="img_upload"/> <?php if($_COOKIE['error15'] != ""){ print($_COOKIE['error15']);setcookie("error15", "Загрузите аватарку", time() - 3600 * 24 * 30, "/");} ?> <br>
         <button class="addbutton" type="submit" id="add" name="add">Изменить пользователя</button>
     </form>
     <?php else:?>
