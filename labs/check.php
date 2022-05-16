@@ -32,7 +32,9 @@
         header('Location: /registr.php');
         exit();
       }
-      $image=addslashes(file_get_contents($_FILES['img_upload']['tmp_name']));
+      //$image=addslashes(file_get_contents($_FILES['img_upload']['tmp_name']));
+      $path='upload/avatars/'.time().$_FILES['img_upload']['name'];
+      move_uploaded_file($_FILES['img_upload']['tmp_name'],$path);
     $pass=md5($pass."ghjbnm");
     $mysql= new mysqli('127.0.0.1','root','','register-bd');
     DB::getInstance();
@@ -50,9 +52,10 @@
         } 
 
     $mysql = new mysqli('127.0.0.1','root','','register-bd');
-    $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$image')");
+    $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$path')");
     $mysql->close();
 
     header('Location: /registr.php');
+    
 
 ?>

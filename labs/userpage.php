@@ -43,14 +43,14 @@
 
 <div class="userImage">
     <?php
-    $login=$_COOKIE['login'];
-    $mysql=new mysqli('127.0.0.1','root','','register-bd');
-    $result=$mysql -> query("SELECT * FROM `users` WHERE `login`='$login'");
-    $user=$result->fetch_assoc();
-    $image=base64_encode($user['image']);
+    // $login=$_COOKIE['login'];
+    // $mysql=new mysqli('127.0.0.1','root','','register-bd');
+    // $result=$mysql -> query("SELECT * FROM `users` WHERE `login`='$login'");
+    // $user=$result->fetch_assoc();
+    // $image=base64_encode($user['image']);
     
     ?>
-    <img src="data:image/jpeg;base64, <?php echo $image?>" alt="">
+    <img src="<?php echo $_COOKIE['image']?>" alt="">
 
 </div>
 <div class="userinfo">

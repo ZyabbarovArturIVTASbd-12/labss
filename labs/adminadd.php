@@ -50,7 +50,7 @@
         } 
 
     $mysql = new mysqli('127.0.0.1','root','','register-bd');
-    $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$image')");
+    $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$path')");
     $mysql->close();
 
     header('Location: /admin.php');

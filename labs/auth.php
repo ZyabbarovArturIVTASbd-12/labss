@@ -19,6 +19,7 @@
     setcookie('user', $user['name'], time() + 3600 * 24 * 30, "/");
     setcookie('login', $user['login'], time() + 3600 * 24 * 30, "/");
     setcookie('admin', $user['admin'], time() + 3600 * 24 * 30, "/");
+    setcookie('image', $user['image'], time() + 3600 * 24 * 30, "/");
 
 
     /*print_r($user);
