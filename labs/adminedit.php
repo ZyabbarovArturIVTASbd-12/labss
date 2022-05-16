@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT']."/db.class.php";
  $login=filter_var(trim($_POST['login']),FILTER_SANITIZE_STRING);
  $name=filter_var(trim($_POST['name']),FILTER_SANITIZE_STRING);
  $pass=filter_var(trim($_POST['pass']),FILTER_SANITIZE_STRING);
@@ -27,22 +28,30 @@ else if(empty($_FILES['img_upload']['tmp_name'])){
    header('Location: /update.php');
    exit();
  }
- $image=addslashes(file_get_contents($_FILES['img_upload']['tmp_name']));
+   $path='upload/avatars/'.time().$_FILES['img_upload']['name'];
+   move_uploaded_file($_FILES['img_upload']['tmp_name'],$path);
 
  $pass=md5($pass."ghjbnm");
 
  $mysql= new mysqli('127.0.0.1','root','','register-bd');
- if ($sql=$mysql->query("SELECT * FROM `users` WHERE `login`='$login'") and $sql->num_rows>0 and $login!=$log)
- { 
- echo "Пользователь с таким логином уже существет"; 
- $mysql->close();
- exit();
- } 
+ DB::getInstance();
+    $login = htmlspecialchars($_POST['login']);
+
+
+        $query = "SELECT * FROM `users` WHERE `login` = '$login'";
+        $res = DB::query($query);
+
+        if (($item = DB::fetch_array($res)) == true) {
+            if ($chooseUserLogin != $item['login']) {
+                echo "This login already exists";
+                exit();
+            }
+        } 
  echo $name;
  $mysql->query("UPDATE `users` SET `login` = '$login' WHERE `users`.`id` = $log");
  $mysql->query("UPDATE `users` SET `name` = '$name' WHERE `users`.`id` = $log");
  $mysql->query("UPDATE `users` SET `pass` = '$pass' WHERE `users`.`id` = $log");
- $mysql->query("UPDATE `users` SET `image` = '$image' WHERE `users`.`id` = $log");
+ $mysql->query("UPDATE `users` SET `image` = '$path' WHERE `users`.`id` = $log");
  
  $mysql->close();
  header('Location: /admin.php');

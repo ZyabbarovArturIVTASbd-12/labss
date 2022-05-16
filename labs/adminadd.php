@@ -32,7 +32,8 @@
         header('Location: /admin.php');
         exit();
       }
-      $image=addslashes(file_get_contents($_FILES['img_upload']['tmp_name']));
+      $path='upload/avatars/'.time().$_FILES['img_upload']['name'];
+      move_uploaded_file($_FILES['img_upload']['tmp_name'],$path);
     $pass=md5($pass."ghjbnm");
     $mysql= new mysqli('127.0.0.1','root','','register-bd');
     DB::getInstance();
