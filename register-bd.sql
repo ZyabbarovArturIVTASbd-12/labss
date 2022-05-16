@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 16 2022 г., 20:29
+-- Время создания: Май 16 2022 г., 20:56
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.1.33
 
@@ -41,7 +41,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`, `name`, `admin`, `image`) VALUES
-(50, 'Artur1', '2983b76ce976482eb9ef0109398e1504', '123', NULL, ''),
+(52, 'Artur12', 'd7696e1ee6aa15e7a8d4dc89086363de', '321', NULL, 'upload/avatars/1652723279chel.jpg'),
 (49, 'Admin', '2983b76ce976482eb9ef0109398e1504', 'art', '1', 'upload/avatars/1652721779admin.jpg'),
 (48, '02020202', '2983b76ce976482eb9ef0109398e1504', '123', NULL, 'upload/avatars/1652720951genshin.jpg');
 
@@ -63,7 +63,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
