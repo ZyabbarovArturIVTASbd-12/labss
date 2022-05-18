@@ -279,6 +279,63 @@ td{
 .tabletext{
   color:white;
 }
+.page {
+  
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  width: 1500px;
+  height: 300px;
+  flex-direction: column;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+
+.user_avatar {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+}
+
+.name-form {
+  margin: 32px auto;
+}
+
+.name-form_input {
+  height: 32px;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+  flex: 1;
+  outline: none;
+}
+
+.btn {
+  height: 40px;
+  min-width: 64px;
+  border: 3px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 16px;
+}
+
+.user_info {
+  text-align: center;
+  font-size: 24px;
+  margin: 32px;
+}
+
+.user_name {
+  font-weight: 700;
+}
+
+.user_location {
+  opacity: 0.5;
+}
 
 
 
