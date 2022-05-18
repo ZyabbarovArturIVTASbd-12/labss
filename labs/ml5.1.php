@@ -7,11 +7,9 @@
     <meta charset="UTF-8">
 </head>
 <body>
-        <h1>Четвертая лаба</h1>
-        <form method="post" action="/script/mldm4labscripts.php">
+        <h1>Пятая лаба</h1>
+        <form method="post" action="/script/ml5.php">
         <textarea name="mass" placeholder="Введите матрицу смежности графа n*n" style="height: 94px; width: 161px;"></textarea><br><br>
-        <input type="text" name="begin" placeholder="Начальная точка"/><br><br>
-        <input type="text" name="end" placeholder="Конечная точка"/><br><br>
         <input type="submit" value="Подтвердить"><br>
         <p>Пример ввода:<br><br>
             0 4 1<br>
@@ -28,14 +26,6 @@
                 echo '<p>'.$_SESSION['mas'].'</p>';
             }
             unset($_SESSION['mas']);
-            if (isset($_SESSION['finalmas']) && !empty($_SESSION['finalmas'])) {
-                echo '<p>'.$_SESSION['finalmas'].'</p>';
-            }
-            unset($_SESSION['finalmas']);
-            if (isset($_SESSION['ways']) && !empty($_SESSION['ways'])) {
-                echo '<p>'.$_SESSION['ways'].'</p>';
-            }
-            unset($_SESSION['ways']);
         ?> 
 </body>
 </html>
