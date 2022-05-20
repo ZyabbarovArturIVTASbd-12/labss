@@ -31,17 +31,6 @@
             <button class="btn btn-success" type="submit">Зарегистрировать</button>
             </form>
             </div>
-            <div class="col">
-            <h1>Форма авторизации</h1>
-            <form action="auth.php" method="post">
-            <input type="text" class="form-control" name="login"
-            id="login" placeholder="Введите логин"><br>
-            
-            <input type="password" class="form-control" name="pass"
-            id="pass" placeholder="Введите пароль"> <?php if($_COOKIE['error4'] != ""){ print($_COOKIE['error4']);setcookie("error4", "Такой пользователь не найден", time() - 3600 * 24 * 30, "/");} ?> <br>
-            <button class="btn btn-success" type="submit">Авторизоваться</button>
-            </form>
-        </div>
     <?php else:?>
         <p> Привет <?=$_COOKIE['user']?>. Чтобы выйти нажмите здесь <a href="/exit.php"> здесь </a> </p>
     

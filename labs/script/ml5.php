@@ -46,9 +46,9 @@
                 if($i==$j){
                     $mass1[$i][$j]=1;
                 }
-                else if($mass[$i][$j]!=0){
-                    $mass1[$i][$j]=1;
-                }
+                //else if($mass[$i][$j]!=0){ // заполняем единицами диагональ, и заполняем те места в массиве где изначально нет нуля
+                 //   $mass1[$i][$j]=1;
+                //}
             }
         }
         
@@ -63,14 +63,14 @@
                 }
             }
         }
-        $insert="";
+        $insert=""; // матрица смежности
         for($i=0;$i<count($mass1);$i++){
             for($j=0;$j<count($mass1[$i]);$j++){
                 $insert=$insert.$mass1[$i][$j].' ';
             }
             $insert=$insert.'<br>';
         }
-        $insert1="";
+        $insert1=""; // матрица достижимости
         for($i=0;$i<count($mass);$i++){
             for($j=0;$j<count($mass[$i]);$j++){
                 $insert1=$insert1.$mass[$i][$j].' ';

@@ -1,5 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']."/db.class.php";
+DB::getInstance();
  $login=filter_var(trim($_POST['login']),FILTER_SANITIZE_STRING);
  $name=filter_var(trim($_POST['name']),FILTER_SANITIZE_STRING);
  $pass=filter_var(trim($_POST['pass']),FILTER_SANITIZE_STRING);
@@ -33,7 +34,7 @@ else if(empty($_FILES['img_upload']['tmp_name'])){
 
  $pass=md5($pass."ghjbnm");
 
- $mysql= new mysqli('127.0.0.1','root','','register-bd');
+ 
  DB::getInstance();
     $login = htmlspecialchars($_POST['login']);
 
@@ -48,11 +49,11 @@ else if(empty($_FILES['img_upload']['tmp_name'])){
             }
         } 
  echo $name;
- $mysql->query("UPDATE `users` SET `login` = '$login' WHERE `users`.`id` = $log");
- $mysql->query("UPDATE `users` SET `name` = '$name' WHERE `users`.`id` = $log");
- $mysql->query("UPDATE `users` SET `pass` = '$pass' WHERE `users`.`id` = $log");
- $mysql->query("UPDATE `users` SET `image` = '$path' WHERE `users`.`id` = $log");
+ DB::query("UPDATE `users` SET `login` = '$login' WHERE `users`.`id` = $log");
+ DB::query("UPDATE `users` SET `name` = '$name' WHERE `users`.`id` = $log");
+ DB::query("UPDATE `users` SET `pass` = '$pass' WHERE `users`.`id` = $log");
+ DB::query("UPDATE `users` SET `image` = '$path' WHERE `users`.`id` = $log");
  
- $mysql->close();
+ 
  header('Location: /admin.php');
 ?>

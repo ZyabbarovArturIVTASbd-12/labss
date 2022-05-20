@@ -1,5 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT']."/db.class.php";
+    DB::getInstance();
     $login = filter_var(trim($_POST['login']),
     FILTER_SANITIZE_STRING);
     $name = filter_var(trim($_POST['name']),
@@ -35,7 +36,6 @@
       $path='upload/avatars/'.time().$_FILES['img_upload']['name'];
       move_uploaded_file($_FILES['img_upload']['tmp_name'],$path);
     $pass=md5($pass."ghjbnm");
-    $mysql= new mysqli('127.0.0.1','root','','register-bd');
     DB::getInstance();
     $login = htmlspecialchars($_POST['login']);
 
@@ -50,9 +50,9 @@
             }
         } 
 
-    $mysql = new mysqli('127.0.0.1','root','','register-bd');
-    $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$path')");
-    $mysql->close();
+    
+    DB::query("INSERT INTO `users` (`login`, `pass`, `name`,`image`) VALUES('$login', '$pass', '$name', '$path')");
+    
 
     header('Location: /admin.php');
 

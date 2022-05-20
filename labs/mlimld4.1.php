@@ -14,9 +14,10 @@
         <input type="text" name="end" placeholder="Конечная точка"/><br><br>
         <input type="submit" value="Подтвердить"><br>
         <p>Пример ввода:<br><br>
-            0 4 1<br>
-            0 0 7<br>
-            0 0 0<br>
+            0 0 3 0<br>
+            2 0 0 0<br>
+            0 7 0 1<br>
+            6 0 0 0<br>
         </p>
         </form>
         <?php 

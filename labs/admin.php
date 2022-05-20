@@ -1,3 +1,5 @@
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/db.class.php";
+DB::getInstance(); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head> 
@@ -58,13 +60,13 @@
         <button class="addbutton" type="submit" id="add" name="add">Добавить пользователя</button>
     </form>
     <?php
-     $link= new mysqli('127.0.0.1','root','','register-bd');
+     
      if(isset($_GET['del'])){
         $log=$_GET['del'];
          $query="DELETE FROM users WHERE login='$log'";
-         mysqli_query($link,$query);
+         DB::query($query);
      }
-     $result=$link->query("SELECT * FROM users");
+     $result=DB::query("SELECT * FROM users");
      for($data=[];$row=$result->fetch_assoc();){
         if($row['login']!="Admin"){
             $data[]=$row;

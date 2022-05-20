@@ -32,7 +32,9 @@
             ?>
 
 
-            <a href="registr.php" class="floating-button">Регистрация/вход</a></td>
+<a href="registr.php" class="floating-button">Регистрация</a></td>
+            <a href="auto.php" class="floating-button">Вход</a></td>
+
 
             </a>
             <?php else:?>

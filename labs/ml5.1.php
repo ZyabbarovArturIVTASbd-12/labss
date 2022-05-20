@@ -12,8 +12,8 @@
         <textarea name="mass" placeholder="Введите матрицу смежности графа n*n" style="height: 94px; width: 161px;"></textarea><br><br>
         <input type="submit" value="Подтвердить"><br>
         <p>Пример ввода:<br><br>
-            0 4 1<br>
-            0 0 7<br>
+            0 1 1<br>
+            0 0 1<br>
             0 0 0<br>
         </p>
         </form>
